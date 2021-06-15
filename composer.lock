@@ -4,8 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc5c4bc67e98380de0f99aff25850ddd",
+    "content-hash": "f3d0e34e7f2cf8c33078b7a3da54d7be",
     "packages": [
+        {
+            "name": "antidot-fw/react-framework",
+            "version": "2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antidot-framework/react-framework.git",
+                "reference": "3a38011c1719697acae10ae77eae38521a22fe19"
+            },
+            "default-branch": true,
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/"
+        },
         {
             "name": "evenement/evenement",
             "version": "v3.0.1",
@@ -779,10 +791,16 @@
         {
             "name": "trowski/react-fiber",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/trowski/react-fiber.git",
+                "reference": "74bba9106a4a20b6a777445bb98f00da9177a67d"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/react-fiber",
-                "reference": "eee63615aab1be81ac2993c0d941b91289c01e31"
+                "type": "zip",
+                "url": "https://api.github.com/repos/trowski/react-fiber/zipball/74bba9106a4a20b6a777445bb98f00da9177a67d",
+                "reference": "74bba9106a4a20b6a777445bb98f00da9177a67d",
+                "shasum": ""
             },
             "require": {
                 "ext-fiber": "*",
@@ -795,25 +813,14 @@
                 "react/http": "^1.1",
                 "react/promise-stream": "^1.2"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Trowski\\ReactFiber\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Trowski\\ReactFiber\\Test\\": "test"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "@php -dzend.assertions=1 -dassert.exception=1 ./vendor/bin/phpunit"
-                ],
-                "code-style": [
-                    "@php ./vendor/bin/php-cs-fixer fix"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -835,9 +842,11 @@
                 "non-blocking",
                 "promise"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/trowski/react-fiber/issues",
+                "source": "https://github.com/trowski/react-fiber/tree/master"
+            },
+            "time": "2021-06-15T18:20:30+00:00"
         }
     ],
     "packages-dev": [
@@ -1016,6 +1025,7 @@
     "stability-flags": {
         "react/http": 20,
         "trowski/react-fiber": 20,
+        "antidot-fw/react-framework": 20,
         "symfony/var-dumper": 20
     },
     "prefer-stable": false,
