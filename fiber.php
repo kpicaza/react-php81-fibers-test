@@ -10,7 +10,7 @@ require 'vendor/autoload.php';
 ini_set('memory_limit', '-1');
 
 // Change to `true` to try multi-thread
-$multiThreads = false;
+$multiThreads = true;
 
 $loop = new FiberLoop(Factory::create());
 $socket = new \React\Socket\Server('0.0.0.0:8080', $loop, [
@@ -29,20 +29,17 @@ $serverInstance = static function () use ($loop, $socket) {
         function (\Psr\Http\Message\ServerRequestInterface $request) use ($loop) {
             try {
                 return $loop->async(static function () use ($loop) {
-                    return $loop->await(new \React\Promise\Promise(function (callable $resolve) use ($loop) {
-                        $message = $loop->await(\React\Promise\resolve('Hola mundo'));
+                    $message = $loop->await(\React\Promise\resolve('Hola mundo'));
 
-                        $resolve(new \React\Http\Message\Response(
-                            200,
-                            array(
-                                'Content-Type' => 'application/json'
-                            ),
-                            json_encode([
-                                'message' => $message,
-                            ])
-                        ));
-
-                    }));
+                    return new \React\Http\Message\Response(
+                        200,
+                        array(
+                            'Content-Type' => 'application/json'
+                        ),
+                        json_encode([
+                            'message' => $message,
+                        ])
+                    );
                 });
             } catch (Throwable $exception) {
                 dump($exception);
